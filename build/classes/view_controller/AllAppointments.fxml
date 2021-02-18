@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view_controller.AllAppointmentsController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="1000.0">
+         <children>
+            <HBox prefHeight="400.0" prefWidth="1000.0">
+               <children>
+                  <VBox prefHeight="270.0" prefWidth="380.0">
+                     <children>
+                        <HBox prefHeight="50.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="115.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="315.0" minWidth="10.0" prefWidth="265.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="15.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="15.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="15.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="15.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="15.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="15.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="For Customer" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets left="8.0" />
+                                 </padding>
+                              </Label>
+                              <Label text="For Time " GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets left="8.0" />
+                                 </padding>
+                              </Label>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <RadioButton fx:id="allTimeRadioButton" mnemonicParsing="false" onAction="#setDateChoice" text="All">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="timePeriodToggleGroup" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets right="10.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="monthRadioButton" mnemonicParsing="false" onAction="#setDateChoice" text="By Month" toggleGroup="$timePeriodToggleGroup">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets right="10.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="weekRadioButton" mnemonicParsing="false" onAction="#setDateChoice" text="By Week" toggleGroup="$timePeriodToggleGroup" />
+                                 </children>
+                              </HBox>
+                              <ComboBox fx:id="selectCustomerComboBox" prefWidth="150.0" visibleRowCount="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="appointmentDatePicker" onAction="#setDateChoice" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label layoutX="10.0" layoutY="60.0" text="For Consultant">
+                                 <padding>
+                                    <Insets left="8.0" />
+                                 </padding>
+                              </Label>
+                              <ComboBox fx:id="selectConsultantComboBox" layoutX="110.0" layoutY="55.0" prefWidth="150.0" visibleRowCount="8" GridPane.columnIndex="1" />
+                              <Button mnemonicParsing="false" onAction="#selectByChoices" text="Refresh Appointments" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="Click ---&gt;" GridPane.rowIndex="4">
+                                 <padding>
+                                    <Insets left="8.0" />
+                                 </padding>
+                              </Label>
+                              <Button fx:id="clearSelectionsButton" layoutX="125.0" layoutY="175.0" mnemonicParsing="false" onAction="#clearSelections" text="Clear Selections" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="270.0" prefWidth="645.0">
+                     <children>
+                        <HBox prefHeight="40.0" prefWidth="445.0">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <TableView fx:id="appointmentTableView" prefHeight="240.0" prefWidth="310.0">
+                           <columns>
+                              <TableColumn fx:id="appointmentIdColumn" prefWidth="70.0" text="Appt ID" />
+                              <TableColumn fx:id="appointmentTypeColumn" prefWidth="100.0" text="Appt Type" />
+                              <TableColumn fx:id="userIdColumn" prefWidth="67.0" text="User ID" />
+                              <TableColumn fx:id="customerIdColumn" prefWidth="73.0" text="Cust ID" />
+                              <TableColumn fx:id="contactColumn" prefWidth="120.0" text="Consultant" />
+                              <TableColumn fx:id="startColumn" minWidth="95.0" prefWidth="90.0" text="Start" />
+                              <TableColumn fx:id="endColumn" minWidth="95.0" prefWidth="90.0" text="End" />
+                           </columns>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets left="11.0" right="22.0" top="22.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="369.0" spacing="10.0">
+               <children>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#onClickBack" prefHeight="31.0" prefWidth="106.0" text="Back">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="updateButton" layoutX="328.0" layoutY="45.0" mnemonicParsing="false" onAction="#onClickUpdate" text="Update Appt">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="addNewAppointmentButton" layoutX="310.0" layoutY="32.0" mnemonicParsing="false" onAction="#onClickAdd" prefHeight="31.0" prefWidth="106.0" text="Add Appt">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="deleteButton" layoutX="258.0" layoutY="32.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="31.0" prefWidth="106.0" text="Delete Appt">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="exitButton" layoutX="95.0" layoutY="32.0" mnemonicParsing="false" onAction="#onClickExit" prefHeight="31.0" prefWidth="106.0" text="Exit">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="view_controller.ReportMenuController">
+   <children>
+      <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="281.0" prefWidth="402.0" spacing="25.0">
+         <children>
+            <HBox prefHeight="120.0" prefWidth="300.0">
+               <children>
+                  <HBox prefHeight="40.0" prefWidth="445.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="376.0" text="Report Menu" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+            <Button fx:id="typesButton" mnemonicParsing="false" onAction="#onClickTypeReport" prefWidth="300.0" text="Number of Appointment Types" />
+            <Button fx:id="consultantsButton" layoutX="141.0" layoutY="78.0" mnemonicParsing="false" onAction="#onClickConsultantsReport" prefWidth="300.0" text="Consultant Schedules" />
+            <Button layoutX="181.0" layoutY="195.0" mnemonicParsing="false" onAction="#onClickCitiesReport" prefWidth="300.0" text="List of Cities" />
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="40.0" prefWidth="402.0">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#onClickBack" prefWidth="60.0" text="Back" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExit" prefWidth="60.0" text="Exit" textAlignment="CENTER" />
+               </children>
+               <padding>
+                  <Insets right="20.0" top="60.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

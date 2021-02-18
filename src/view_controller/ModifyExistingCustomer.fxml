@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view_controller.ModifyExistingCustomerController">
+   <children>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="480.0" prefWidth="420.0">
+         <children>
+            <GridPane vgap="26.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="126.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="241.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Customer Name" GridPane.rowIndex="1" />
+                  <Label text="Address" GridPane.rowIndex="2" />
+                  <Label fx:id="cityLabel" text="City" GridPane.rowIndex="3" />
+                  <Label text="Postal Code" GridPane.rowIndex="4" />
+                  <Label text="Country" GridPane.rowIndex="5" />
+                  <Label text="Phone" GridPane.rowIndex="6" />
+                  <TextField fx:id="addressTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="postalCodeTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="phoneTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label text="Customer ID" />
+                  <Label fx:id="customerIdLabel" text="ID" GridPane.columnIndex="1" />
+                  <TextField fx:id="customerNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="cityComboBox" onAction="#onClickCityPopulateCountry" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="countryTextField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </GridPane>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="MessageLabel" alignment="BOTTOM_LEFT" text="Type any changes, then press &quot;Save.&quot; ">
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Button fx:id="backButton" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#onClickBack" text="Back" />
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onClickSave" text="Save" />
+                  <Button fx:id="exitButton" layoutX="346.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickExit" text="Exit" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="11.0" right="22.0" top="22.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
