@@ -23,10 +23,10 @@ import java.time.ZoneId;
  * @author carolyn.sher
  */
 public class DBConnection {
-    private static final String databaseName="U06115";
-    private static final String DB_URL="jdbc:mysql://3.227.166.251/"+databaseName;
-    private static final String username="U06115";
-    private static final String password="53688668229";
+    private static final String databaseName="xxxxxx";
+    private static final String DB_URL="jdbc:mysql://xxxxxxxxxxxx/"+databaseName;
+    private static final String username="xxxxxx";
+    private static final String password="xxxxxxxxxxx";
     private static final String driver="com.mysql.jdbc.Driver";
     public  static final ZoneId DB_TIME_ZONE = ZoneId.of("UTC");
     
